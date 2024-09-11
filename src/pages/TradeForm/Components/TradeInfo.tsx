@@ -40,8 +40,8 @@ export const TradeInfo = ({selectedToken1, selectedToken2, receivedAmount}: Trad
                         <TbInfoSquareFilled className='-mx-1 text-xExchange-Neutral/500'/>
                     </div>
                     <div className="w-10 h-4 flex items-center gap-2 font-normal text-14-16 text-xExchange-Neutral/200">
-                        <div className="w-15 h-4 ">1%</div>
-                        <MdSettings/>
+                        <div className="w-15 h-4 px-1">1%</div>
+                        <MdSettings className=' ml-1'/>
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@ export const TradeInfo = ({selectedToken1, selectedToken2, receivedAmount}: Trad
                         <TbInfoSquareFilled className='mx-0.5 text-xExchange-Neutral/500'/>
                     </div>
                     <div className="w-34 h-4">
-                        <div className="w-34 h-4 font-normal text-14-16 text-xExchange-Neutral/200">&lt;0.1%</div>
+                        <div className="w-34 h-4 -ml-1 font-normal text-14-16 text-xExchange-Neutral/200">&lt;0.1%</div>
                     </div>
                 </div>
             </div>
