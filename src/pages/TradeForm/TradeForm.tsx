@@ -1,14 +1,20 @@
 import {TradeButton, TradeInfo, TradeInput, TradeSwap, TradeTitle} from "./Components";
-import {useFetchTokens} from "./Hooks";
-import {useEffect, useState} from "react";
+import {useFetchTokens, useHandleInputChange} from "./Hooks";
+import {useState} from "react";
 import {Token} from "./types";
 
 export const TradeForm = () => {
     const {tokens} = useFetchTokens();
     const [selectedToken1, setSelectedToken1] = useState<Token>();
     const [selectedToken2, setSelectedToken2] = useState<Token>();
-    const [inputAmount1, setInputAmount1] = useState('');
-    const [inputAmount2, setInputAmount2] = useState('');
+
+    const {
+        inputAmount1,
+        inputAmount2,
+        handleInputChange,
+        setInputAmount1,
+        setInputAmount2
+    } = useHandleInputChange(selectedToken1, selectedToken2);
 
     const handleSwap = () => {
         setSelectedToken1(selectedToken2);
@@ -16,22 +22,6 @@ export const TradeForm = () => {
         setInputAmount1(inputAmount2);
         setInputAmount2(inputAmount1);
     };
-    const handleInputChange1 = (value: string) => {
-        setInputAmount1(value);
-        if (!isNaN(parseFloat(value)) && selectedToken1 && selectedToken2) {
-            const calculatedValue = (parseFloat(value) * (selectedToken1.price / selectedToken2.price)).toFixed(4).toString();
-            setInputAmount2(calculatedValue);
-        } else {
-            setInputAmount2('');
-        }
-    };
-
-    useEffect(() => {
-        if (inputAmount1 && !isNaN(parseFloat(inputAmount1)) && selectedToken1 && selectedToken2) {
-            const calculatedValue = (parseFloat(inputAmount1) * (selectedToken1.price / selectedToken2.price)).toFixed(4).toString();
-            setInputAmount2(calculatedValue);
-        }
-    }, [selectedToken1, selectedToken2]);
 
     return (
         <div className='flex justify-center items-center min-h-screen'>
@@ -46,7 +36,7 @@ export const TradeForm = () => {
                                 selectedToken={selectedToken1}
                                 setSelectedToken={setSelectedToken1}
                                 amount={inputAmount1}
-                                onInputChange={handleInputChange1}
+                                onInputChange={handleInputChange}
                             />
                             <TradeSwap swap={handleSwap}/>
                             <TradeInput

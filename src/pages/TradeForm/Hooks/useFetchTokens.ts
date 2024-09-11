@@ -1,13 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {useGetAccount} from "@multiversx/sdk-dapp/hooks";
-
-export type UseFetchTokensReturnType = {
-    ticker: string,
-    svgUrl: string,
-    price: number,
-    balance: string,
-}
+import {UseFetchTokensReturnType} from "../types";
 
 export const useFetchTokens = () => {
     const { address } = useGetAccount();

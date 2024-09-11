@@ -1,9 +1,6 @@
 import {HiArrowDown} from "react-icons/hi";
 import {HiArrowsUpDown} from "react-icons/hi2";
-
-type TradeSwapProps = {
-    swap: () => void;
-}
+import {TradeSwapProps} from "../types";
 
 export const TradeSwap = ({swap}: TradeSwapProps) => {
     return (

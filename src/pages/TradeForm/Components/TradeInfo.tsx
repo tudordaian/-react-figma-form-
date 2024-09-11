@@ -1,13 +1,7 @@
 import {IoIosArrowDown} from "react-icons/io";
 import {TbInfoSquareFilled} from "react-icons/tb";
 import {MdSettings} from "react-icons/md";
-import {Token} from "../types";
-
-type TradeInfoProps = {
-    selectedToken1: Token;
-    selectedToken2: Token;
-    receivedAmount: string;
-};
+import {TradeInfoProps} from "../types";
 
 export const TradeInfo = ({selectedToken1, selectedToken2, receivedAmount}: TradeInfoProps) => {
     return (
