@@ -8,7 +8,7 @@ export type Token = {
 export type TradeInputProps = {
     withMaxButton: boolean,
     tokens: Token[],
-    selectedToken: Token | undefined,
+    selectedToken: Token,
     setSelectedToken: (token: Token) => void,
     amount: string,
     onInputChange: (value: string) => void,
