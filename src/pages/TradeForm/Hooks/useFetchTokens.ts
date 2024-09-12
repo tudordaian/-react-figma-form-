@@ -5,7 +5,6 @@ import {UseFetchTokensReturnType} from "../types";
 
 export const useFetchTokens = () => {
     const { address } = useGetAccount();
-    const [token, setToken] = useState<UseFetchTokensReturnType>();
     const [tokens, setTokens] = useState<UseFetchTokensReturnType[]>([]);
 
     useEffect(() => {
@@ -20,7 +19,6 @@ export const useFetchTokens = () => {
 
                 }));
                 if (tokens.length > 0) {
-                    setToken(tokens[0]);
                     setTokens(tokens);
                 }
             } catch (err) {
@@ -30,5 +28,5 @@ export const useFetchTokens = () => {
         fetchData();
     }, [address]);
 
-    return { token, tokens };
+    return { tokens };
 };

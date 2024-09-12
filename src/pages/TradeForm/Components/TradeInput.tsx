@@ -62,8 +62,7 @@ export const TradeInput = ({withMaxButton, tokens, selectedToken, setSelectedTok
                                     }}
                                 />
 
-                                <div id='input-tokens'
-                                     className='relative w-129 h-40 p-1 gap-2 rounded-bl-3xl rounded-tl-3xl rounded-tr-lg rounded-br-lg bg-xExchange-Neutral/850 hover:bg-xExchange-Neutral/700 transition-all duration-300 cursor-pointer'>
+                                <div id='input-tokens' className='relative w-129 h-40 p-1 gap-2 rounded-bl-3xl rounded-tl-3xl rounded-tr-lg rounded-br-lg bg-xExchange-Neutral/850 hover:bg-xExchange-Neutral/700 transition-all duration-300 cursor-pointer'>
                                     <div className="flex gap-2" onClick={() => setDropdownVisible(!dropdownVisible)}>
                                         {!loading && selectedToken && (
                                             <>
@@ -87,9 +86,9 @@ export const TradeInput = ({withMaxButton, tokens, selectedToken, setSelectedTok
                                 </div>
                             </div>
 
-                            {errors.inputAmount && touched.inputAmount ? (
+                            {errors.inputAmount && touched.inputAmount && (
                                 <div className='absolute text-red-500 text-12-14'>{errors.inputAmount}</div>
-                            ) : null}
+                            )}
 
                             <div id='input-bottom' className='w-398 h-6 flex items-center justify-between mt-3'>
                                 {values.inputAmount && selectedToken ? (<div id='input-value' className='w-54 h-5 font-normal text-14-19.6 text-xExchange-Neutral/500'>${(Number(values.inputAmount) * selectedToken.price).toFixed(2)}</div>)
