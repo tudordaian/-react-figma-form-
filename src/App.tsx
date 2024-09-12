@@ -16,7 +16,7 @@ function App() {
                     name: 'myDappConfig',
                 }}
                 dappConfig={{
-                    logoutRoute: '/unlock'
+                    logoutRoute: '/tradeform'
                 }}
             >
                 <Layout>

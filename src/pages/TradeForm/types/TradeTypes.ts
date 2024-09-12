@@ -14,13 +14,6 @@ export type TradeInputProps = {
     onInputChange: (value: string) => void,
 };
 
-export type UseFetchTokensReturnType = {
-    ticker: string,
-    svgUrl: string,
-    price: number,
-    balance: string,
-}
-
 export type TradeSwapProps = {
     swap: () => void;
 }

@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {useGetAccount} from "@multiversx/sdk-dapp/hooks";
-import {UseFetchTokensReturnType} from "../types";
+import {Token} from "../types";
 
 export const useFetchTokens = () => {
     const { address } = useGetAccount();
-    const [tokens, setTokens] = useState<UseFetchTokensReturnType[]>([]);
+    const [tokens, setTokens] = useState<Token[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -16,7 +16,6 @@ export const useFetchTokens = () => {
                     svgUrl: tokens.assets.svgUrl,
                     price: tokens.price,
                     balance: tokens.balance,
-
                 }));
                 if (tokens.length > 0) {
                     setTokens(tokens);
